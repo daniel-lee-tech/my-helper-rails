@@ -1,17 +1,15 @@
 class AuthenticateForm < ApplicationForm
-  attr_accessor :email
-  attr_reader :plain_text_password
+  attr_reader :plain_text_password, :email
 
   # @param [Hash{Symbol->String}] params
   def initialize(params = { email: '', plain_text_password: '' })
-    super()
+    @errors = { fields: { email: [], plain_text_password: [] } }
     @email = params[:email]
     @plain_text_password = params[:plain_text_password]
+    super()
   end
 
   def validate
-    @errors = { fields: { email: [], plain_text_password: [] } }
-
     validate_email
     validate_plain_text_password
   end

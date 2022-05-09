@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'users#login'
-  get 'users/login', to: 'users#login'
-  post 'users/login', to: 'users#authenticate'
+  get 'users/login', to: 'users#login', as: 'login'
+  get 'users/signup', to: 'users#signup', as: 'signup'
+  post 'users/login', to: 'users#authenticate', as: 'authenticate'
 end

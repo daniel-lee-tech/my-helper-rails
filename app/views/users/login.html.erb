@@ -2,12 +2,12 @@
   <% @form.field_error(:email).each do |error| %>
     <%= error %>
   <% end %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, value: @form.email %>
 
   <% @form.field_error(:plain_text_password).each do |error| %>
     <%= error %>
   <% end %>
-  <%= f.password_field :plain_text_password %>
+  <%= f.password_field :plain_text_password, value: @form.plain_text_password %>
 
   <%= f.submit 'Login' %>
 <% end %>
