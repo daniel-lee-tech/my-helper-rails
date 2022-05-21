@@ -78,7 +78,12 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'shoulda-matchers'
+  gem 'capybara-screenshot'
+
+  # A browser automation framework and ecosystem
+  gem 'selenium-webdriver'
+
+  # Keep your Selenium WebDrivers updated automatically
+  gem 'webdrivers', require: !ENV['SELENIUM_REMOTE_URL']
 end

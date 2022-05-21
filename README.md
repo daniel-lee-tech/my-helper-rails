@@ -1,24 +1,13 @@
-# README
+# My Helper Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tests
 
-Things you may want to cover:
+### Integration Tests
 
-* Ruby version
+Integration tests are ran using capybara, rspec, and selenium.
 
-* System dependencies
+To run tests locally:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose run --rm -e RAILS_ENV=test web bin/rails spec:system
+```
