@@ -1,14 +1,40 @@
-<%= form_with url: '/users/login', local: true do |f| %>
-  <% @form.errors.dig(:messages, :email)&.each do |error| %>
-    <%= error %>
-  <% end %>
-  <%= f.text_field :email, value: @form.email %>
+<div class="columns">
 
-  <% @form.errors.dig(:messages, :plain_text_password)&.each do |error| %>
-    <%= error %>
-  <% end %>
-  
-  <%= f.password_field :plain_text_password, value: @form.plain_text_password %>
+  <%= form_with url: '/users/login', local: true, :class => 'column mx-auto is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd' do |f| %>
+    <div class="is-size-1 my-4">Log In</div>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <%= f.text_field :email, value: @form.email, class: 'input' %>
+        <% @form.errors.dig(:messages, :email)&.each do |error| %>
+          <p class="help is-danger">
+            <%= error %>
+          </p>
+        <% end %>
+      </div>
+    </div>
 
-  <%= f.submit 'Login' %>
-<% end %>
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <%= f.password_field :plain_text_password, value: @form.plain_text_password, class: 'input' %>
+
+
+        <% @form.errors.dig(:messages, :plain_text_password)&.each do |error| %>
+          <p class="help is-danger">
+            <%= error %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+
+    <%= f.submit 'Login', class: 'button is-primary my-4' %>
+    <a href="<%= signup_path %>" class="button is-primary is-outlined my-4">Signup</a>
+  <% end %>
+</div>
