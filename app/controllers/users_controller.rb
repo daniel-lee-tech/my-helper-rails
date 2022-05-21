@@ -13,14 +13,14 @@ class UsersController < ApplicationController
     )
 
     if @user.valid?
-      @user = User.create(email: @user.email, password: @user.password, password_confirmation: @user.password_confirmation)
+      @user = User.create(email: @user.email, password: @user.password,
+                          password_confirmation: @user.password_confirmation)
       render 'login'
     else
       pp 'not valid'
       pp @user.errors.full_messages
       render 'signup', status: :unprocessable_entity
     end
-
   end
 
   def login

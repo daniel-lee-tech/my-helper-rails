@@ -26,7 +26,6 @@ class User < ApplicationRecord
 
   validate :valid_email
 
-
   def valid_email
     errors.add(:email, 'email is not a valid email') unless email.match(URI::MailTo::EMAIL_REGEXP)
   end

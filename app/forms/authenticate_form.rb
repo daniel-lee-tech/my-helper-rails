@@ -1,5 +1,6 @@
-class AuthenticateForm < ApplicationForm
+# frozen_string_literal: true
 
+class AuthenticateForm < ApplicationForm
   attr_reader :plain_text_password, :email, :errors
 
   def initialize(email: '', plain_text_password: '')

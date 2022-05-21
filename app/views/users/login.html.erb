@@ -1,12 +1,13 @@
 <%= form_with url: '/users/login', local: true do |f| %>
-  <% @form.field_error(:email).each do |error| %>
+  <% @form.errors.dig(:messages, :email)&.each do |error| %>
     <%= error %>
   <% end %>
   <%= f.text_field :email, value: @form.email %>
 
-  <% @form.field_error(:plain_text_password).each do |error| %>
+  <% @form.errors.dig(:messages, :plain_text_password)&.each do |error| %>
     <%= error %>
   <% end %>
+  
   <%= f.password_field :plain_text_password, value: @form.plain_text_password %>
 
   <%= f.submit 'Login' %>

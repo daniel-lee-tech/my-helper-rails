@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationForm
   attr_accessor :errors
 
@@ -12,7 +14,6 @@ class ApplicationForm
     nil
   end
 
-
   def valid?
     validate
     @errors[:messages].empty?
@@ -22,9 +23,9 @@ class ApplicationForm
 
   def validate_initialization!
     raise '@errors must be a hash' unless @errors.is_a?(Hash)
+
     raise '@errors[:fields] must be a hash' unless @errors[:messages].is_a?(Hash)
+
     nil
   end
 end
-
-
