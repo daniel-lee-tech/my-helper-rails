@@ -24,6 +24,8 @@ services:
     image: redis:7.0.0
     container_name: my-helper-redis
     restart: always
+    ports:
+      - "6379:6379"
     volumes:
       - ./tmp/redis:/data
 
